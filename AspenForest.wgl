@@ -1,0 +1,158 @@
+REM Aspen forest
+
+REM Fitness visit flag
+f = 0
+
+10
+REM Aspen forest
+PRINTLN
+PRINTLN "You are a brave knight and you are walking through the forest. A very beautiful forest. Bees are flying over dandelions."
+PRINTLN "Pansies turn blue in the green grass. Aspen mushrooms glow like lights under every tree."
+PRINTLN "And suddenly, a pole appears in front of you, and on it are two signs."
+PRINTLN "The first sign (1) says: 'minus sign'."
+PRINTLN "The second sign (2) says: 'Go left, and you will become healthy, happy and rich'."
+PRINTLN
+11
+INPUT "Where will you go? Enter 1, 2 or 3 to exit the program:", a
+GOSUB 1030
+IF q = -1 THEN GOTO 11
+IF q = 3 THEN GOTO 9999
+IF q = 2 THEN GOTO 20
+
+REM Minus sign
+PRINTLN
+PRINTLN "You have chosen the minus sign."
+PRINTLN "Are you kidding? What's the point? This is a dead end. What are you going to do next?"
+PRINTLN "(1) You return to the aspen forest."
+PRINTLN "(2) You finish the game."
+15
+INPUT "Enter 1 or 2 to exit the program:", a
+GOSUB 1020
+IF q = -1 THEN GOTO 15
+IF q = 1 THEN GOTO 10
+IF q = 2 THEN GOTO 9999
+
+20
+REM Fitness
+PRINTLN
+PRINTLN "You go left. And in front of you is a fitness club."
+PRINTLN "What are you doing?"
+PRINTLN "(1) You go to the fitness and do strength training for an hour and a half."
+PRINTLN "(2) You move on. You don't have time for this."
+PRINTLN
+21
+INPUT "What do you choose? Enter 1, 2 or 3 to exit the program:", a
+GOSUB 1030
+IF q = -1 THEN GOTO 21
+IF q = 3 THEN GOTO 9999
+
+REM If the answer is 1, then we put the flag for visiting the fitness center
+IF q = 1 THEN f = 1
+
+30
+REM Princess
+PRINTLN
+PRINTLN "You go further and see a princess being tormented by a dragon."
+PRINTLN "What are you doing?"
+PRINTLN "(1) You are fighting a dragon."
+PRINTLN "(2) You move on. You don't have time for this."
+PRINTLN
+31
+INPUT "What do you choose? Enter 1, 2 or 3 to exit the program:", a
+GOSUB 1030
+IF q = -1 THEN GOTO 31
+IF q = 3 THEN GOTO 9999
+IF q = 2 THEN GOTO 32
+IF f = 1 THEN GOTO 40
+PRINTLN
+PRINTLN "You didn't do any fitness and the dragon defeated you."
+PRINTLN "Pay more attention to sports in real life. Game over."
+GOTO 9999
+32
+PRINTLN
+PRINTLN "The dragon caught up with you and ate you."
+PRINTLN "Fight for your happiness in real life. Game over."
+GOTO 9999
+
+40
+REM Bag of gold
+PRINTLN
+PRINTLN "You defeated the dragon. The princess fell in love with you and went with you."
+PRINTLN "You go further and see a bag of gold. What do you do?"
+PRINTLN "(1) You take the bag of gold with you."
+PRINTLN "(2) Pass by. You don't have any time."
+PRINTLN
+41
+INPUT "What do you choose? Enter 1, 2 or 3 to exit the program:", a
+GOSUB 1030
+IF q = -1 THEN GOTO 41
+IF q = 3 THEN GOTO 9999
+IF q = 1 THEN GOTO 50
+PRINTLN
+PRINTLN "You didn't take the gold? The princess didn't like it and she ran away from you."
+PRINTLN "Game over."
+GOTO 9999
+
+50
+REM The princess offers help
+PRINTLN
+PRINTLN "The princess offers you to help carry a bag of gold."
+PRINTLN "What are you doing?"
+PRINTLN "(1) You give the bag of gold to the princess."
+PRINTLN "(2) You can't allow a lady to carry such heavy things."
+PRINTLN
+51
+INPUT "What do you choose? Enter 1, 2 or 3 to exit the program:", a
+GOSUB 1030
+IF q = -1 THEN GOTO 51
+IF q = 3 THEN GOTO 9999
+IF q = 2 THEN GOTO 52
+PRINTLN
+PRINTLN "You went into the forest for a minute. And the princess ran away with your bag of gold."
+PRINTLN "Be careful in real life. Game over."
+PRINTLN
+GOTO 9999
+52
+PRINTLN
+PRINTLN "Yay! You are healthy after fitness classes, happy with the princess"
+PRINTLN "and you have a bag of gold! Keep it up! Well, the game is over."
+PRINTLN
+GOTO 9999
+
+REM Completion of all adventures
+9999
+PRINTLN
+END
+
+REM Subroutine for processing two answer options.
+REM If a < 1 or a > 2 then q = -1, otherwise q = a.
+REMIf a = 2, then, among other things, the message will be displayed: "Too bad. We could have played."
+1020
+  IF a < 1 THEN GOTO 1021
+  IF a > 2 THEN GOTO 1021
+  IF a = 2 THEN PRINTLN "It's a pity. We could have played."
+  q = a
+  GOTO 1029
+
+  1021
+    q = -1
+    PRINTLN "Invalid value."
+  1029
+RETURN
+
+REM Subroutine for processing three answer options.
+REM If a < 1 or a > 3 then q = -1, otherwise q = a.
+REM If a = 3, then, among other things, the message will be displayed: "It's a pity. We could have played."
+1030
+  IF a < 1 THEN GOTO 1031
+  IF a > 3 THEN GOTO 1031
+  IF a = 3 THEN PRINTLN "It's a pity. We could have played."
+
+  q = a
+  GOTO 1039
+
+  1031
+    q = -1
+    PRINTLN "Invalid value."
+  1039
+RETURN
