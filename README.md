@@ -10,7 +10,7 @@ This repository contains the interpreter and the game code.
 
 Download the repository to your computer. First, you need to run the language interpreter. To do this, double-click the WeekendInterpreter.jar file or, if it doesn't start, double-click the WeekendInterpreter.bat file. If the latter doesn't start the application, download and install Java 11 or later and try the methods described above again.
 
-After running the interpreter, open the AspenForest.wgl file and press F5 to run it.
+After running the interpreter, open the AspenForest.wgl file and press F5 to run the game.
 
 ### How to play
 
